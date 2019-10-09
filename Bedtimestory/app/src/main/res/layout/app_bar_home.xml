@@ -39,6 +39,7 @@
                         style="@style/TextAppearance.AppCompat.Title"
                         android:textSize="14sp"/>
                     <TextView
+                        android:id="@+id/current_date"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Saturday April 12, 2019"

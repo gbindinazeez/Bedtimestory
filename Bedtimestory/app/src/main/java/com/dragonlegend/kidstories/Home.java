@@ -38,7 +38,9 @@ import com.dragonlegend.kidstories.Model.User;
 import com.pixplicity.easyprefs.library.Prefs;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -64,6 +66,11 @@ public class Home extends AppCompatActivity
         super.onCreate(savedInstanceState);
         getWindow().getDecorView().setLayoutDirection(View.LAYOUT_DIRECTION_RTL);
         setContentView(R.layout.activity_home);
+
+        // Set current date to toolbar text
+        TextView currentDate = findViewById(R.id.current_date);
+        getCurrentDate(currentDate);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -393,6 +400,15 @@ public class Home extends AppCompatActivity
         snackbar.show();
     }
 
-
+    // Get the current date
+    public void getCurrentDate(TextView view) {
+        Calendar calendar = Calendar.getInstance(Locale.getDefault());
+        String day = calendar.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.LONG, Locale.getDefault());
+        String monthString = calendar.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.getDefault());
+        int monthInt = calendar.get(Calendar.MONTH);
+        int year = calendar.get(Calendar.YEAR);
+        String date = day + " " + monthString + " " + monthInt + ", " + year;
+        view.setText(date);
+    }
 }
 
