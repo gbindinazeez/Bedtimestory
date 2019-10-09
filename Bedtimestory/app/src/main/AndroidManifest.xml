@@ -2,15 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:dist="http://schemas.android.com/apk/distribution"
     package="com.dragonlegend.kidstories">
-
     <!-- Internet Permission -->
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="com.android.vending.BILLING" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
-    <dist:module dist:instant="true" />
-
     <application
         android:name=".Utils.MainAplication"
         android:icon="@mipmap/ic_launcher"
@@ -18,8 +10,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Bookmark"
-            android:parentActivityName=".MainActivity"></activity>
+        <activity android:name=".About"></activity>
+        <activity
+            android:name=".Bookmark"
+            android:parentActivityName=".MainActivity" />
         <activity android:name=".Onboarding" />
         <activity android:name=".Login" />
         <activity
@@ -58,5 +52,12 @@
             android:parentActivityName=".Home" />
         <activity android:name=".StoryListingActivity" />
     </application>
+    <uses-permission android:name="com.android.vending.BILLING" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <dist:module dist:instant="true" />
 
 </manifest>

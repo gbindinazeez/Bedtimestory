@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.dragonlegend.kidstories.About">
+
+    <View
+        android:id="@+id/rectangle_1"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="-24dp"
+        android:background="@drawable/rectangle_top"
+        />
+
+    <TextView
+        android:id="@+id/about"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="130dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="37dp"
+        android:text="About"
+        android:textSize="24sp"
+        android:textColor="#FFFFFF"
+        android:gravity="top"
+        />
+
+    <LinearLayout
+        android:layout_width="306dp"
+        android:layout_height="376dp"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="27dp"
+        android:layout_marginRight="27dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="188dp"
+        android:background="@drawable/box_word"
+        android:orientation="vertical"
+        android:elevation="4dp">
+
+        <TextView
+            android:id="@+id/kiddies"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="Roboto"
+            android:text="@string/kiddies_story"
+            android:textSize="14sp"
+            android:layout_marginTop="24dp"
+            android:textAlignment="center"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            />
+
+        <TextView
+            android:id="@+id/develop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="Roboto"
+            android:gravity="bottom"
+            android:layout_marginBottom="150dp"
+            android:text="@string/develop_info"
+            android:textAlignment="center"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+</RelativeLayout>
+
