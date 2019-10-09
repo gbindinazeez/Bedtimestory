@@ -23,9 +23,10 @@ import retrofit2.Response;
 
 public class ProfileActivity extends AppCompatActivity {
     ImageView mImage;
-    TextView mUserName,mUserEmail,mUserPhoneNum;
+    TextView mUserName, mUserEmail, mUserPhoneNum;
     BedTimeDbHelper mDbHelper;
     User mUser;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,24 +70,24 @@ public class ProfileActivity extends AppCompatActivity {
 
     }
 
-    private void loadUserProfile(){
-        Client.getInstance().create(ApiInterface.class).getProfile("Bearer "+Prefs.getString("token",null)).enqueue(new Callback<LoginResponse>() {
+    private void loadUserProfile() {
+        Client.getInstance().create(ApiInterface.class).getProfile("Bearer " + Prefs.getString("token", null)).enqueue(new Callback<LoginResponse>() {
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
-                if(response.isSuccessful()){
+                if (response.isSuccessful()) {
                     mUser = response.body().getUser();
-                    Log.e("TAG",mUser.getId());
-                    String name = mUser.getFirstName()+" "+mUser.getLastName();
+                    Log.e("TAG", mUser.getId());
+                    String name = mUser.getFirstName() + " " + mUser.getLastName();
                     mUserName.setText(name);
                     mUserEmail.setText(mUser.getEmail());
                     String phone = mUser.getPhoneNumber();
-                    if(mUser.getPhoneNumber()==null)
+                    if (mUser.getPhoneNumber() == null)
                         phone = "No associated phone number";
 
                     mUserPhoneNum.setText(phone);
 
                     String imageUrl = mUser.getImage();
-                    if(mUser.getImage()==null)
+                    if (mUser.getImage() == null)
                         imageUrl = "https://res.cloudinary.com/ephaig/image/upload/v1555015808/download.png";
 
                     Glide.with(getApplicationContext())
@@ -98,7 +99,7 @@ public class ProfileActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<LoginResponse> call, Throwable t) {
-                Log.e("TAG",t.getMessage());
+                Log.e("TAG", t.getMessage());
             }
         });
     }
